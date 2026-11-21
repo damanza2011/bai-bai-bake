@@ -1,7 +1,8 @@
 /**
  * BAI BAI BAKE — CONCIERGE CHATBOT MODULE (chatbot.js)
  * Motor conversacional "BakeBot", NLP basado en intents, árbol de respuestas guiadas,
- * integración con plataformas de delivery (Rappi, Mensajeros) y canalización directa a WhatsApp (+57 301 779 6023).
+ * integración con plataformas de delivery (Rappi, DiDi Food, Mensajeros Urbanos)
+ * y canalización directa a WhatsApp (+57 301 779 6023).
  * Estándar de ingeniería comercial SALMAN
  */
 
@@ -10,6 +11,7 @@
 
   const WHATSAPP_PHONE = '573017796023';
   const RAPPI_STORE_URL = 'https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake';
+  const DIDI_STORE_URL = 'https://www.didi-food.com/es-CO/food/store/bai-bai-bake-barranquilla';
 
   // Matriz de Intents y Respuestas Contextuales
   const INTENTS = [
@@ -27,19 +29,20 @@
     },
     {
       name: 'plataformas',
-      keywords: ['rappi', 'didi', 'uber', 'mensajeros', 'plataforma', 'plataformas', 'prime', 'domiciliario', 'recoger'],
-      response: '🛵 <strong>¡Operamos con entregas express en Barranquilla!</strong><br>• <strong>Por esta web / WhatsApp:</strong> Te ahorras las comisiones de aplicación y coordinamos el despacho con <em>Rappi Envíos</em> o <em>Mensajeros Urbanos</em> directamente a tu puerta.<br>• <strong>En la App de Rappi:</strong> Si tienes RappiPrime y prefieres pedir por su app, puedes acceder a nuestro menú de Rappi Aliados.',
+      keywords: ['rappi', 'didi', 'didifood', 'didi food', 'uber', 'mensajeros', 'plataforma', 'plataformas', 'prime', 'domiciliario', 'recoger'],
+      response: '🛵 <strong>¡Operamos con entregas express en Barranquilla vía Rappi y DiDi Food!</strong><br>• <strong>En esta web (Directo sin sobrecostos):</strong> Te ahorras las comisiones de aplicación y despachamos de inmediato con repartidores de <em>Rappi Envíos</em> o <em>Mensajeros Urbanos</em>.<br>• <strong>En Rappi:</strong> Pide con tu membresía RappiPrime.<br>• <strong>En DiDi Food:</strong> Aprovecha los cupones de entrega y descuentos locales.',
       actionHtml: `
-        <div class="flex items-center gap-2 mt-1">
-          <a href="${RAPPI_STORE_URL}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-[#FF441F] text-white font-bold text-[10px] uppercase hover:bg-[#e03a18] transition-colors shadow-sm">Pedir en Rappi</a>
-          <button onclick="BakeChat.transferToWhatsApp()" class="px-3 py-1.5 rounded-full bg-chocolate text-crema font-bold text-[10px] uppercase hover:bg-chocolate-soft transition-colors shadow-sm">Pedir sin Comisiones</button>
+        <div class="flex flex-wrap items-center gap-1.5 mt-1">
+          <button onclick="openPlatformModal('rappi')" class="px-3 py-1.5 rounded-full bg-[#FF441F] text-white font-bold text-[10px] uppercase hover:bg-[#e03a18] transition-colors shadow-sm">Módulo Rappi</button>
+          <button onclick="openPlatformModal('didi')" class="px-3 py-1.5 rounded-full bg-[#FF5B00] text-white font-bold text-[10px] uppercase hover:bg-[#e04e00] transition-colors shadow-sm">Módulo DiDi Food</button>
+          <button onclick="BakeChat.transferToWhatsApp()" class="px-3 py-1.5 rounded-full bg-chocolate text-crema font-bold text-[10px] uppercase hover:bg-chocolate-soft transition-colors shadow-sm">WhatsApp Directo</button>
         </div>
       `
     },
     {
       name: 'entregas',
       keywords: ['entrega', 'entregas', 'domicilio', 'domicilios', 'barranquilla', 'puerto colombia', 'soledad', 'cobertura', 'envio', 'envios', 'tiempo', 'anticipacion'],
-      response: 'Despachamos en <strong>Barranquilla</strong> (Norte, Riomar, Alto Prado, Villa Country), <strong>Puerto Colombia</strong>, <strong>Villa Campestre</strong> y <strong>Soledad</strong> mediante envíos express climatizados (Rappi Cargo / Mensajeros Urbanos). Requerimos <strong>24 a 48 horas de anticipación</strong> porque horneamos bajo encargo. También puedes retirar en taller sin costo.',
+      response: 'Despachamos en <strong>Barranquilla</strong> (Norte, Riomar, Alto Prado, Villa Country), <strong>Puerto Colombia</strong>, <strong>Villa Campestre</strong> y <strong>Soledad</strong> mediante envíos express climatizados (Rappi Cargo / DiDi / Mensajeros Urbanos). Requerimos <strong>24 a 48 horas de anticipación</strong> porque horneamos bajo encargo. También puedes retirar en taller sin costo.',
       actionHtml: ''
     },
     {
@@ -70,9 +73,6 @@
 
   let lastUserQuery = '';
 
-  /**
-   * Escape HTML para seguridad en el chat
-   */
   function escapeHTML(str) {
     return str.replace(/[&<>'"]/g, tag => ({
       '&': '&amp;',
@@ -83,9 +83,6 @@
     }[tag] || tag));
   }
 
-  /**
-   * Agregar Mensaje al Feed
-   */
   function appendMessage(sender, text, actionHtml = '') {
     const container = document.getElementById('chatMessages');
     if (!container) return;
@@ -115,14 +112,10 @@
     container.scrollTop = container.scrollHeight;
   }
 
-  /**
-   * Motor de Correspondencia de NLP por Intent
-   */
   function processUserInput(rawText) {
     const text = rawText.toLowerCase().trim();
     lastUserQuery = rawText;
 
-    // Buscar match de intents
     for (const intent of INTENTS) {
       const match = intent.keywords.some(keyword => text.includes(keyword));
       if (match) {
@@ -131,22 +124,19 @@
       }
     }
 
-    // Respuesta por defecto con fallback
     appendMessage(
       'bot',
-      '¡Qué rica pregunta! Para darte el asesoramiento exacto o coordinar con la agenda de Ángela Duque hoy, ¿te gustaría que te conecte directamente por WhatsApp o pedir por Rappi?',
+      '¡Qué delicia de consulta! Puedes coordinar tu pedido y recogida express por <strong>Rappi</strong>, <strong>DiDi Food</strong> o directamente con Ángela Duque por WhatsApp:',
       `
-        <div class="flex items-center gap-2 mt-1">
+        <div class="flex flex-wrap items-center gap-1.5 mt-1">
           <button onclick="BakeChat.transferToWhatsApp()" class="px-3.5 py-1.5 rounded-full bg-chocolate text-crema font-bold text-[10px] uppercase hover:bg-chocolate-soft transition-colors shadow-sm">Hablar con Ángela</button>
-          <a href="${RAPPI_STORE_URL}" target="_blank" class="px-3.5 py-1.5 rounded-full bg-[#FF441F] text-white font-bold text-[10px] uppercase hover:bg-[#e03a18] transition-colors shadow-sm">Ver en Rappi</a>
+          <button onclick="openPlatformModal('rappi')" class="px-3 py-1.5 rounded-full bg-[#FF441F] text-white font-bold text-[10px] uppercase hover:bg-[#e03a18] transition-colors shadow-sm">Rappi</button>
+          <button onclick="openPlatformModal('didi')" class="px-3 py-1.5 rounded-full bg-[#FF5B00] text-white font-bold text-[10px] uppercase hover:bg-[#e04e00] transition-colors shadow-sm">DiDi Food</button>
         </div>
       `
     );
   }
 
-  /**
-   * Respuestas Rápidas (Quick Replies)
-   */
   function handleQuickReply(type) {
     if (type === 'brownies') {
       appendMessage('user', '¿Cuáles son los brownies más recomendados y fudgy?');
@@ -161,7 +151,7 @@
         appendMessage('bot', intent.response, intent.actionHtml);
       }, 350);
     } else if (type === 'plataformas') {
-      appendMessage('user', '¿Cómo pedir por Rappi o mensajería express?');
+      appendMessage('user', '¿Cómo pedir por Rappi, DiDi Food o Express?');
       setTimeout(() => {
         const intent = INTENTS.find(i => i.name === 'plataformas');
         appendMessage('bot', intent.response, intent.actionHtml);
@@ -181,24 +171,18 @@
     }
   }
 
-  /**
-   * Transferencia Directa a WhatsApp con el contexto
-   */
   function transferToWhatsApp() {
     let text = `Hola Ángela, estoy en la página de Bai Bai Bake y deseo consultarte`;
     if (lastUserQuery) {
       text += ` sobre: "${lastUserQuery}"`;
     } else {
-      text += ` sobre la disponibilidad de pedidos y despachos express en Barranquilla.`;
+      text += ` sobre la disponibilidad de pedidos y recogidas express con Rappi/DiDi en Barranquilla.`;
     }
     const encoded = encodeURIComponent(text);
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`;
     window.open(url, '_blank');
   }
 
-  /**
-   * Manejo de Ventana de Chat
-   */
   function toggleChat() {
     const chatWin = document.getElementById('conciergeChatWindow');
     const tooltip = document.getElementById('conciergeTooltip');
@@ -232,9 +216,6 @@
     if (tooltip) tooltip.classList.remove('hidden');
   }
 
-  /**
-   * Inicialización
-   */
   function init() {
     const form = document.getElementById('chatForm');
     const input = document.getElementById('chatInput');
@@ -261,7 +242,6 @@
     });
   }
 
-  // Exportar al espacio global
   window.BakeChat = {
     toggle: toggleChat,
     open: openChat,

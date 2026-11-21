@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bai Bai Bake | Artisanal Brownies & Pastry por Ángela Duque</title>
-  <meta name="description" content="Bai Bai Bake (@baibaibakee) — Boutique de repostería artesanal y brownies finos liderada por Ángela Duque en Barranquilla. 70% cacao puro, textura melcochuda y horneado exclusivo bajo encargo. Envíos vía Rappi y mensajería express.">
+  <meta name="description" content="Bai Bai Bake (@baibaibakee) — Boutique de repostería artesanal y brownies finos liderada por Ángela Duque en Barranquilla. 70% cacao puro, centro melcochudo y despacho express integrado con Rappi y Mensajería Urbana.">
   <meta name="keywords" content="brownies melcochudos, repostería artesanal Barranquilla, Ángela Duque, Bai Bai Bake, Rappi repostería Barranquilla, tortas de celebración, pastelería fina, brownies fudgy, galletas Levain">
   <meta name="author" content="Ángela Duque - Bai Bai Bake">
 
   <!-- Open Graph / Meta Redes Sociales -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Bai Bai Bake | Artisanal Brownies & Pastry por Ángela Duque">
-  <meta property="og:description" content="El arte del brownie melcochudo y la repostería que despierta sonrisas. Pide por nuestra web, WhatsApp o Rappi en Barranquilla.">
+  <meta property="og:description" content="El arte del brownie melcochudo y la repostería que despierta sonrisas. Centro de despacho y recogida integrado con Rappi y Mensajería Express en Barranquilla.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=85">
 
   <!-- Google Fonts: Playfair Display (Serif clásico) y Plus Jakarta Sans (Moderna y geométrica) -->
@@ -41,6 +41,8 @@
             'melocoton-light': '#FDF2F0',
             rappi: '#FF441F',
             'rappi-dark': '#E03A18',
+            didi: '#FF5B00',
+            'didi-dark': '#E04E00',
             esmeralda: '#10B981'
           },
           fontFamily: {
@@ -70,7 +72,7 @@
   <!-- Announcement Bar Superior -->
   <aside class="bg-chocolate text-mantequilla text-xs py-2 px-4 text-center tracking-wider uppercase font-medium flex items-center justify-center gap-2 relative z-40" aria-label="Aviso de disponibilidad">
     <span class="inline-block w-2 h-2 rounded-full bg-melocoton animate-ping"></span>
-    <span>Horneado bajo pedido en Barranquilla • Envíos Express vía Rappi y Mensajería Especializada</span>
+    <span>Horneado bajo pedido en Barranquilla • Integrado con Rappi, DiDi Food y Mensajería Express</span>
     <span class="hidden md:inline">• Despachos en Barranquilla, Puerto Colombia y Soledad</span>
   </aside>
 
@@ -94,14 +96,18 @@
       </a>
 
       <!-- Navegación Fluida (Desktop) -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-chocolate-soft" aria-label="Navegación del sitio">
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-chocolate-soft" aria-label="Navegación del sitio">
         <a href="#vitrina" class="hover:text-chocolate transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-dorado hover:after:w-full after:transition-all after:duration-300">Vitrina</a>
+        <a href="#delivery-hub" class="hover:text-chocolate transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-dorado hover:after:w-full after:transition-all after:duration-300 flex items-center gap-1.5 text-chocolate font-medium">
+          <span class="text-xs">🛵</span>
+          <span>Plataformas & Envíos</span>
+        </a>
         <a href="#esencia" class="hover:text-chocolate transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-dorado hover:after:w-full after:transition-all after:duration-300">Nuestra Esencia</a>
         <a href="#personalizados" class="hover:text-chocolate transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-dorado hover:after:w-full after:transition-all after:duration-300">Tortas a Medida</a>
         <a href="#faq" class="hover:text-chocolate transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-dorado hover:after:w-full after:transition-all after:duration-300">Preguntas</a>
       </nav>
 
-      <!-- Acciones de Cabecera (Carrito + Rappi Directo + WhatsApp Directo) -->
+      <!-- Acciones de Cabecera (Carrito + Rappi In-Page Modal + WhatsApp) -->
       <div class="flex items-center gap-2.5 sm:gap-3">
         
         <!-- Indicador de Carrito con Badge Animado -->
@@ -116,16 +122,21 @@
           </span>
         </button>
 
-        <!-- Botón Oficial Rappi Aliados -->
-        <a href="https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-rappi text-white text-xs font-bold tracking-wide hover:bg-rappi-dark transition-all duration-300 shadow-warm hover:shadow-md transform hover:-translate-y-0.5">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
-          </svg>
-          <span>Pedir en Rappi</span>
-        </a>
+        <!-- Botón Oficial Rappi -->
+        <button onclick="openPlatformModal('rappi')" 
+                class="hidden lg:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-rappi text-white text-xs font-bold tracking-wide hover:bg-rappi-dark transition-all duration-300 shadow-warm hover:shadow-md transform hover:-translate-y-0.5"
+                title="Módulo Rappi Aliados en pantalla">
+          <span class="text-xs">🛵</span>
+          <span>Rappi</span>
+        </button>
+
+        <!-- Botón Oficial DiDi Food -->
+        <button onclick="openPlatformModal('didi')" 
+                class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-didi text-white text-xs font-bold tracking-wide hover:bg-didi-dark transition-all duration-300 shadow-warm hover:shadow-md transform hover:-translate-y-0.5"
+                title="Módulo DiDi Food Aliados en pantalla">
+          <span class="text-xs">🧡</span>
+          <span>DiDi Food</span>
+        </button>
 
         <!-- Botón Contacto Directo WhatsApp (+57 301 779 6023) -->
         <a href="https://wa.me/573017796023?text=Hola%20Ángela,%20estoy%20en%20la%20página%20de%20Bai%20Bai%20Bake%20y%20quisiera%20conversar%20sobre%20un%20pedido%20especial." 
@@ -135,7 +146,7 @@
           <svg class="w-4 h-4 fill-current text-dorado" viewBox="0 0 24 24">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.087.289.13.332.203.043.072.043.419-.101.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.661 1.442 5.176L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
           </svg>
-          <span>WhatsApp Directo</span>
+          <span>WhatsApp</span>
         </a>
 
         <!-- Botón Menú Móvil -->
@@ -155,20 +166,21 @@
     <div id="mobileMenuPanel" class="hidden md:hidden border-t border-chocolate/5 bg-crema px-6 py-6 transition-all duration-300">
       <div class="flex flex-col gap-4 text-base font-medium text-chocolate">
         <a href="#vitrina" class="mobile-nav-link py-2 border-b border-chocolate/5">Colecciones de Brownies & Vitrina</a>
+        <a href="#delivery-hub" class="mobile-nav-link py-2 border-b border-chocolate/5 text-rappi font-bold">🛵 Centro de Recogida Rappi & Express</a>
         <a href="#esencia" class="mobile-nav-link py-2 border-b border-chocolate/5">Nuestra Esencia & Calidad</a>
         <a href="#personalizados" class="mobile-nav-link py-2 border-b border-chocolate/5">Cotizador de Tortas a Medida</a>
         <a href="#faq" class="mobile-nav-link py-2 border-b border-chocolate/5">Preguntas Frecuentes</a>
-        <div class="pt-2 space-y-2.5">
-          <!-- Botón Móvil Rappi -->
-          <a href="https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-rappi text-white font-bold text-sm shadow-sm">
-            <span>🛵 Pedir en Rappi (Barranquilla)</span>
-          </a>
-          <!-- Botón Móvil BakeBot -->
-          <button onclick="BakeChat.open()" class="w-full text-center py-3 rounded-xl bg-mantequilla text-chocolate font-semibold text-sm">
+        <div class="pt-2 space-y-2">
+          <button onclick="openPlatformModal('rappi')" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-rappi text-white font-bold text-xs shadow-sm">
+            <span>🛵 Pedir en Rappi (Módulo en Pantalla)</span>
+          </button>
+          <button onclick="openPlatformModal('didi')" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-didi text-white font-bold text-xs shadow-sm">
+            <span>🧡 Pedir en DiDi Food (Módulo en Pantalla)</span>
+          </button>
+          <button onclick="BakeChat.open()" class="w-full text-center py-2.5 rounded-xl bg-mantequilla text-chocolate font-semibold text-xs">
             🤖 Hablar con BakeBot Concierge
           </button>
-          <!-- Botón Móvil WhatsApp -->
-          <a href="https://wa.me/573017796023?text=Hola%20Ángela,%20quisiera%20conversar%20sobre%20un%20pedido%20en%20Bai%20Bai%20Bake." target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-chocolate text-crema font-semibold text-sm">
+          <a href="https://wa.me/573017796023?text=Hola%20Ángela,%20quisiera%20conversar%20sobre%20un%20pedido%20en%20Bai%20Bai%20Bake." target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-chocolate text-crema font-semibold text-xs">
             <span>WhatsApp Directo (+57 301 779 6023)</span>
           </a>
         </div>
@@ -185,7 +197,6 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          <!-- Columna Izquierda: Copy Emocional & Propuesta de Valor -->
           <div class="lg:col-span-6 space-y-6 sm:space-y-8 text-center lg:text-left">
             
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-mantequilla/90 border border-dorado/30 text-chocolate text-xs tracking-widest uppercase font-semibold">
@@ -198,41 +209,51 @@
             </h1>
 
             <p class="text-chocolate-muted text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
-              Brownies ultra melcochudos (<em>fudgy</em>) con capa crujiente craquelada, chocolates al 70% de cacao de origen y tortas de diseño horneadas exclusivamente bajo pedido para celebraciones memorables en <strong>Barranquilla y la Costa Caribe</strong>.
+              Brownies ultra melcochudos (<em>fudgy</em>) con capa crujiente craquelada, chocolates al 70% de cacao de origen y tortas de diseño horneadas bajo pedido con <strong>recogida y despacho express integrado con Rappi y Mensajeros Urbanos en Barranquilla</strong>.
             </p>
 
-            <!-- Acciones Duales de Alto Impacto -->
-            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <!-- Acciones Principales con Botones Oficiales Rappi & DiDi Food -->
+            <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
               <a href="#vitrina" 
-                 class="w-full sm:w-auto px-8 py-4 rounded-full bg-chocolate text-crema text-xs font-semibold tracking-wider uppercase hover:bg-chocolate-soft transition-all duration-300 shadow-warm hover:shadow-warm-lg text-center flex items-center justify-center gap-2 group">
+                 class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-chocolate text-crema text-xs font-semibold tracking-wider uppercase hover:bg-chocolate-soft transition-all duration-300 shadow-warm hover:shadow-warm-lg text-center flex items-center justify-center gap-2 group">
                 <span>Explorar Vitrina</span>
                 <svg class="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform text-dorado" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </a>
 
-              <a href="https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 class="w-full sm:w-auto px-8 py-4 rounded-full bg-rappi hover:bg-rappi-dark text-white text-xs font-semibold tracking-wider uppercase transition-all duration-300 shadow-warm text-center flex items-center justify-center gap-2">
-                <span>🛵 Pedir en Rappi</span>
-              </a>
+              <!-- Botón Oficial Rappi -->
+              <button onclick="openPlatformModal('rappi')" 
+                      class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-rappi hover:bg-rappi-dark text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-warm text-center flex items-center justify-center gap-2 shadow-sm">
+                <span class="text-base">🛵</span>
+                <span>Pedir en Rappi</span>
+              </button>
+
+              <!-- Botón Oficial DiDi Food -->
+              <button onclick="openPlatformModal('didi')" 
+                      class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-didi hover:bg-didi-dark text-white text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-warm text-center flex items-center justify-center gap-2 shadow-sm">
+                <span class="text-base">🧡</span>
+                <span>Pedir en DiDi Food</span>
+              </button>
 
               <button onclick="BakeChat.open()" 
-                      class="w-full sm:w-auto px-6 py-4 rounded-full bg-mantequilla hover:bg-mantequilla-subtle text-chocolate text-xs font-semibold tracking-wider uppercase transition-all duration-300 border border-dorado/40 text-center flex items-center justify-center gap-2 shadow-sm">
+                      class="w-full sm:w-auto px-5 py-3.5 rounded-full bg-mantequilla hover:bg-mantequilla-subtle text-chocolate text-xs font-semibold tracking-wider uppercase transition-all duration-300 border border-dorado/40 text-center flex items-center justify-center gap-2 shadow-sm">
                 <span>💬 BakeBot</span>
               </button>
             </div>
 
-            <!-- Plataformas de Despacho y Entrega Express en Barranquilla -->
+            <!-- Indicadores de Plataforma en Vivo -->
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-2">
-              <span class="text-xs text-chocolate-muted font-medium">Despacho express vía:</span>
-              <a href="https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded-full bg-rappi/10 hover:bg-rappi/20 text-rappi text-[11px] font-bold flex items-center gap-1.5 border border-rappi/20 transition-colors">
+              <span class="text-xs text-chocolate-muted font-medium">Plataformas integradas en vivo:</span>
+              <button onclick="openPlatformModal('rappi')" class="px-3 py-1 rounded-full bg-rappi/10 hover:bg-rappi/20 text-rappi text-[11px] font-bold flex items-center gap-1.5 border border-rappi/20 transition-colors">
                 <span class="w-1.5 h-1.5 rounded-full bg-rappi"></span> Rappi Aliados
-              </a>
-              <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-800 text-[11px] font-bold flex items-center gap-1.5 border border-emerald-500/20">
+              </button>
+              <button onclick="openPlatformModal('didi')" class="px-3 py-1 rounded-full bg-didi/10 hover:bg-didi/20 text-didi text-[11px] font-bold flex items-center gap-1.5 border border-didi/20 transition-colors">
+                <span class="w-1.5 h-1.5 rounded-full bg-didi"></span> DiDi Food Aliados
+              </button>
+              <a href="#delivery-hub" class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-800 text-[11px] font-bold flex items-center gap-1.5 border border-emerald-500/20">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Mensajeros Urbanos
-              </span>
+              </a>
               <span class="px-3 py-1 rounded-full bg-mantequilla text-chocolate text-[11px] font-semibold border border-dorado/30">
                 🧁 Retiro en Taller
               </span>
@@ -276,7 +297,6 @@
                   </div>
                 </div>
 
-                <!-- Insignia Flotante -->
                 <div class="absolute -bottom-4 -left-4 bg-crema/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-warm border border-chocolate/5 flex items-center gap-3 animate-float-subtle">
                   <span class="w-2.5 h-2.5 rounded-full bg-dorado ring-4 ring-dorado-light"></span>
                   <div>
@@ -286,10 +306,9 @@
                 </div>
               </div>
 
-              <!-- Tarjetas Secundarias: Galletas Levain & Tortas -->
+              <!-- Tarjetas Secundarias -->
               <div class="col-span-4 space-y-4 relative z-10">
                 
-                <!-- Card 2: Galletas Gigantes Centro Suave -->
                 <div class="relative rounded-2xl overflow-hidden shadow-warm group bg-mantequilla">
                   <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80" 
                        alt="Galleta artesanal gigante con centro suave estilo Levain" 
@@ -301,7 +320,6 @@
                   </span>
                 </div>
 
-                <!-- Card 3: Torta de Celebración de Autor -->
                 <div class="relative rounded-2xl overflow-hidden shadow-warm group bg-mantequilla">
                   <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" 
                        alt="Torta artesanal para cumpleaños y bodas en Barranquilla" 
@@ -361,13 +379,156 @@
 
     </section>
 
+    <!-- NUEVO: Centro de Despacho & Recogida en Vivo (#delivery-hub) -->
+    <section id="delivery-hub" class="py-16 sm:py-24 bg-gradient-to-b from-mantequilla/30 to-crema border-y border-chocolate/5">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <span class="text-xs uppercase tracking-[0.25em] text-rappi font-bold block mb-2">Integración de Plataformas en Vivo</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-chocolate">
+            Centro de Despacho & Recogida
+          </h2>
+          <p class="text-xs sm:text-sm text-chocolate-muted mt-2">
+            Gestiona la recogida de tu pedido con <strong>Rappi Envíos</strong>, mensajería urbana especializada o programa tu retiro en nuestro atelier sin abandonar la página.
+          </p>
+        </div>
+
+        <div class="bg-crema rounded-3xl border border-chocolate/10 shadow-warm-lg p-6 sm:p-10">
+          
+          <!-- Pestañas de Plataforma Integradas: 4 Modalidades en Vivo -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            
+            <!-- Opción 1: Rappi Envíos Express -->
+            <div class="p-5 rounded-2xl bg-rappi/5 border-2 border-rappi/30 hover:border-rappi hover:shadow-md transition-all cursor-pointer" onclick="selectHubTab('rappi')">
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full bg-rappi text-white text-[10px] font-bold uppercase tracking-wider">Rappi Express</span>
+                <span class="font-serif font-bold text-chocolate text-sm">$7.500</span>
+              </div>
+              <h4 class="font-serif text-base font-bold text-chocolate flex items-center gap-1.5">
+                <span>🛵 Rappi Aliados</span>
+              </h4>
+              <p class="text-xs text-chocolate-muted mt-1 leading-relaxed">
+                Asignación de domiciliario express para recogida en atelier y entrega directa con tracking en vivo.
+              </p>
+            </div>
+
+            <!-- Opción 2: DiDi Food Aliados -->
+            <div class="p-5 rounded-2xl bg-didi/5 border-2 border-didi/30 hover:border-didi hover:shadow-md transition-all cursor-pointer" onclick="selectHubTab('didi')">
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full bg-didi text-white text-[10px] font-bold uppercase tracking-wider">DiDi Express</span>
+                <span class="font-serif font-bold text-chocolate text-sm">$7.500</span>
+              </div>
+              <h4 class="font-serif text-base font-bold text-chocolate flex items-center gap-1.5">
+                <span>🧡 DiDi Food</span>
+              </h4>
+              <p class="text-xs text-chocolate-muted mt-1 leading-relaxed">
+                Entregas rápidas con promociones locales y cupones de plataforma activables dentro de la página.
+              </p>
+            </div>
+
+            <!-- Opción 3: Mensajería Especializada Climatizada -->
+            <div class="p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 hover:border-emerald-500 hover:shadow-md transition-all cursor-pointer" onclick="selectHubTab('mensajeria')">
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider">Tortas / Bodas</span>
+                <span class="font-serif font-bold text-chocolate text-sm">$12.000</span>
+              </div>
+              <h4 class="font-serif text-base font-bold text-chocolate flex items-center gap-1.5">
+                <span>🚗 Climatizado A/C</span>
+              </h4>
+              <p class="text-xs text-chocolate-muted mt-1 leading-relaxed">
+                Transporte de alta protección con aire acondicionado para tortas esculturales en Barranquilla y Sabanilla.
+              </p>
+            </div>
+
+            <!-- Opción 4: Retiro en Atelier -->
+            <div class="p-5 rounded-2xl bg-mantequilla/60 border border-dorado/30 hover:border-dorado hover:shadow-md transition-all cursor-pointer" onclick="selectHubTab('pickup')">
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-1 rounded-full bg-chocolate text-crema text-[10px] font-bold uppercase tracking-wider">Sin Costo</span>
+                <span class="font-serif font-bold text-dorado text-sm">$0 COP</span>
+              </div>
+              <h4 class="font-serif text-base font-bold text-chocolate flex items-center gap-1.5">
+                <span>🧁 Pick-up Atelier</span>
+              </h4>
+              <p class="text-xs text-chocolate-muted mt-1 leading-relaxed">
+                Retira tu caja recién horneada con cita previa directamente en nuestro taller en el norte de Barranquilla.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Simulador y Calculador de Despacho en Vivo -->
+          <div class="bg-mantequilla/30 p-6 rounded-2xl border border-chocolate/10 space-y-6" id="hubSimulatorContainer">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-chocolate/10 pb-4">
+              <div>
+                <h4 class="font-serif text-xl font-bold text-chocolate">Simulador de Recogida con Repartidor</h4>
+                <p class="text-xs text-chocolate-muted">Cotiza en tiempo real el flete y tiempo estimado para tu barrio en Barranquilla.</p>
+              </div>
+              <div class="flex flex-wrap items-center gap-2">
+                <button onclick="openPlatformModal('rappi')" class="px-3.5 py-2 rounded-full bg-rappi text-white font-bold text-xs uppercase hover:bg-rappi-dark transition-colors shadow-sm flex items-center gap-1.5">
+                  <span>🛵 Módulo Rappi</span>
+                </button>
+                <button onclick="openPlatformModal('didi')" class="px-3.5 py-2 rounded-full bg-didi text-white font-bold text-xs uppercase hover:bg-didi-dark transition-colors shadow-sm flex items-center gap-1.5">
+                  <span>🧡 Módulo DiDi Food</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label for="hubZoneSelect" class="block text-xs font-bold uppercase text-chocolate mb-1">Zona de Destino:</label>
+                <select id="hubZoneSelect" onchange="updateHubSimulation()" class="w-full px-3.5 py-2.5 rounded-xl bg-crema border border-chocolate/15 text-xs text-chocolate focus:ring-2 focus:ring-chocolate/20">
+                  <option value="norte" data-cost="7500" data-time="25-35 min">Norte / Riomar / Alto Prado</option>
+                  <option value="centro" data-cost="9500" data-time="30-45 min">Centro / Boston / Recreo</option>
+                  <option value="puerto" data-cost="12000" data-time="40-55 min">Puerto Colombia / Villa Campestre</option>
+                  <option value="soledad" data-cost="13500" data-time="45-60 min">Soledad / Área Metropolitana</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-chocolate mb-1">Tarifa de Recogida:</label>
+                <div class="px-3.5 py-2.5 rounded-xl bg-crema border border-chocolate/15 text-xs font-bold text-chocolate" id="hubRateDisplay">
+                  $7.500 COP
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-chocolate mb-1">Tiempo de Tránsito Estimado:</label>
+                <div class="px-3.5 py-2.5 rounded-xl bg-crema border border-chocolate/15 text-xs font-bold text-chocolate" id="hubTimeDisplay">
+                  25 a 35 minutos
+                </div>
+              </div>
+            </div>
+
+            <!-- Barra de Estado Visual de Despacho -->
+            <div class="pt-4 border-t border-chocolate/10">
+              <span class="text-[11px] uppercase font-bold text-chocolate-muted tracking-wider block mb-3">Flujo Automatizado de Recogida:</span>
+              <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                <div class="p-3 rounded-xl bg-crema border border-chocolate/10">
+                  <span class="block font-bold text-chocolate mb-0.5">1. Horno del Día</span>
+                  <span class="text-[10px] text-chocolate-muted">Elaboración artesanal fresca</span>
+                </div>
+                <div class="p-3 rounded-xl bg-rappi/10 border border-rappi/20">
+                  <span class="block font-bold text-rappi mb-0.5">2. Asignación Rappi</span>
+                  <span class="text-[10px] text-chocolate-muted">Motorizado recoge en taller</span>
+                </div>
+                <div class="p-3 rounded-xl bg-crema border border-chocolate/10">
+                  <span class="block font-bold text-chocolate mb-0.5">3. En tu Mesa</span>
+                  <span class="text-[10px] text-chocolate-muted">Entrega con tracking en vivo</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
     <!-- 4. Módulo "El Sello Bai Bai" (#esencia) -->
     <section id="esencia" class="py-16 sm:py-24 bg-mantequilla/40 border-y border-chocolate/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <!-- Imagen del Atelier y Ángela Duque -->
           <div class="lg:col-span-5 relative">
             <div class="rounded-3xl overflow-hidden shadow-warm-lg bg-mantequilla">
               <img src="https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=800&q=80" 
@@ -383,7 +544,6 @@
             </div>
           </div>
 
-          <!-- Storytelling & 3 Pilares -->
           <div class="lg:col-span-7 space-y-6 lg:pl-6">
             <span class="text-xs font-sans uppercase tracking-[0.25em] text-dorado font-semibold block">El Sello Bai Bai</span>
             
@@ -395,7 +555,6 @@
               En <strong>Bai Bai Bake</strong> no existen polvos para preparar ni premezclas de repostería. Liderados por <strong>Ángela Duque</strong>, creamos una experiencia golosa y memorable donde la textura melcochuda y el equilibrio de sal y cacao son protagonistas.
             </p>
 
-            <!-- 3 Tarjetas de Beneficio -->
             <div class="grid grid-cols-1 gap-4 pt-2">
               
               <div class="flex items-start gap-4 p-4 rounded-2xl bg-crema border border-chocolate/5 shadow-warm-sm hover:shadow-warm transition-shadow">
@@ -521,7 +680,6 @@
 
       <div class="space-y-4" id="faqAccordion">
         
-        <!-- Pregunta 1 -->
         <div class="faq-card bg-mantequilla/30 border border-chocolate/5 rounded-2xl overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
             <span class="font-serif text-lg sm:text-xl font-medium text-chocolate">¿Con cuánta anticipación debo hacer mi pedido en Barranquilla?</span>
@@ -534,7 +692,6 @@
           </div>
         </div>
 
-        <!-- Pregunta 2 -->
         <div class="faq-card bg-mantequilla/30 border border-chocolate/5 rounded-2xl overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
             <span class="font-serif text-lg sm:text-xl font-medium text-chocolate">¿Cómo funcionan las entregas vía Rappi y Mensajería Express?</span>
@@ -543,7 +700,7 @@
             </span>
           </button>
           <div class="faq-body hidden px-6 pb-6 text-xs sm:text-sm text-chocolate-muted leading-relaxed border-t border-chocolate/5 pt-3">
-            Contamos con dos modalidades de entrega express:
+            Contamos con dos modalidades de entrega express integradas:
             <ul class="list-disc pl-5 mt-2 space-y-1">
               <li><strong>Rappi Envíos / Mensajeros Urbanos:</strong> Al confirmar tu pedido por WhatsApp, solicitamos el motorizado express asignado a tu dirección en Barranquilla (Norte, Riomar, Alto Prado, etc.), Puerto Colombia y Soledad, enviándote el link de rastreo en vivo.</li>
               <li><strong>App de Rappi Directa:</strong> Si cuentas con membresía RappiPrime, puedes pedir desde su aplicación en nuestra tienda oficial de Rappi Aliados.</li>
@@ -552,7 +709,6 @@
           </div>
         </div>
 
-        <!-- Pregunta 3 -->
         <div class="faq-card bg-mantequilla/30 border border-chocolate/5 rounded-2xl overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
             <span class="font-serif text-lg sm:text-xl font-medium text-chocolate">¿Cómo debo conservar mis brownies para que sigan melcochudos?</span>
@@ -565,7 +721,6 @@
           </div>
         </div>
 
-        <!-- Pregunta 4 -->
         <div class="faq-card bg-mantequilla/30 border border-chocolate/5 rounded-2xl overflow-hidden transition-all duration-300">
           <button class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none" aria-expanded="false">
             <span class="font-serif text-lg sm:text-xl font-medium text-chocolate">¿Cuáles son los métodos de pago aceptados?</span>
@@ -582,7 +737,7 @@
     </section>
   </main>
 
-  <!-- Panel Lateral del Carrito (Drawer Deslizable) -->
+  <!-- Panel Lateral del Carrito (Drawer Deslizable) con Despacho de Plataforma en Vivo -->
   <div id="cartDrawerBackdrop" class="fixed inset-0 bg-chocolate/40 modal-backdrop-blur z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
   <aside id="cartDrawer" 
@@ -591,7 +746,6 @@
          aria-modal="true" 
          aria-labelledby="cartDrawerHeading">
     
-    <!-- Encabezado del Carrito -->
     <div class="px-6 py-5 border-b border-chocolate/10 flex items-center justify-between bg-crema">
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-dorado"></span>
@@ -610,35 +764,40 @@
     <!-- Panel de Despacho y Checkout WhatsApp -->
     <div class="p-6 border-t border-chocolate/10 bg-mantequilla/20 space-y-4">
       
-      <!-- Callout Alternativo Rappi -->
-      <div class="p-3 bg-rappi/5 border border-rappi/20 rounded-2xl flex items-center justify-between gap-3">
-        <div class="text-xs">
-          <p class="font-bold text-chocolate flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-rappi"></span>
-            ¿Tienes RappiPrime?
+      <!-- Callout Alternativo Plataformas Oficiales In-Page -->
+      <div class="p-3 bg-mantequilla/60 border border-dorado/20 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-2.5">
+        <div class="text-xs text-center sm:text-left">
+          <p class="font-bold text-chocolate flex items-center justify-center sm:justify-start gap-1.5">
+            <span>🛵</span>
+            <span>¿Prefieres Rappi o DiDi Food?</span>
           </p>
-          <p class="text-[11px] text-chocolate-muted">Pide por la app de Rappi con envío gratis</p>
+          <p class="text-[11px] text-chocolate-muted">Abre los módulos de entrega dentro de esta página</p>
         </div>
-        <a href="https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-rappi text-white text-xs font-bold shrink-0 hover:bg-rappi-dark transition-colors shadow-sm">
-          Abrir Rappi
-        </a>
+        <div class="flex items-center gap-2">
+          <button onclick="openPlatformModal('rappi')" class="px-3 py-1 rounded-full bg-rappi text-white text-xs font-bold hover:bg-rappi-dark transition-colors shadow-sm">
+            Rappi
+          </button>
+          <button onclick="openPlatformModal('didi')" class="px-3 py-1 rounded-full bg-didi text-white text-xs font-bold hover:bg-didi-dark transition-colors shadow-sm">
+            DiDi Food
+          </button>
+        </div>
       </div>
 
-      <!-- Zona de Entrega & Modalidad de Plataforma -->
+      <!-- Zona de Entrega & Modalidad de Plataforma con Tarifas en Vivo -->
       <div>
         <label for="cartDeliveryZone" class="block text-xs font-bold uppercase tracking-wider text-chocolate mb-1">
-          📍 Modalidad & Zona de Despacho:
+          📍 Modalidad de Despacho / Recogida:
         </label>
         <select id="cartDeliveryZone" class="w-full px-3.5 py-2.5 rounded-xl bg-crema border border-chocolate/15 text-xs sm:text-sm text-chocolate focus:ring-2 focus:ring-chocolate/20 focus:outline-none">
-          <option value="Despacho Express Rappi Cargo / Mensajeros Urbanos (Norte / Riomar)">🛵 Despacho Express Rappi / Mensajeros Urbanos (Norte)</option>
-          <option value="Despacho Express Rappi Cargo / Mensajeros Urbanos (Centro / Sur)">🛵 Despacho Express Rappi / Mensajeros Urbanos (Centro / Sur)</option>
-          <option value="Despacho Climatizado Especial (Puerto Colombia / Villa Campestre)">🚗 Despacho Climatizado (Pto. Colombia / Villa Campestre)</option>
-          <option value="Despacho Climatizado Especial (Soledad)">🚗 Despacho Climatizado (Soledad)</option>
-          <option value="Retiro en Taller / Pick-up sin costo (Barranquilla)">🧁 Retiro en Taller (Pick-up sin costo)</option>
+          <option value="rappi-norte">🛵 Rappi Envíos Express (Norte / Riomar / Alto Prado) +$7.500</option>
+          <option value="didi-barranquilla">🧡 DiDi Food Envíos (Cobertura Urbana Barranquilla) +$7.500</option>
+          <option value="rappi-sur">🛵 Rappi / DiDi Express (Centro / Sur) +$9.500</option>
+          <option value="rappi-pto-colombia">🚗 Mensajería Express (Pto. Colombia / Villa Campestre) +$12.000</option>
+          <option value="rappi-soledad">🚗 Mensajería Climatizada (Soledad) +$13.500</option>
+          <option value="pickup">🧁 Retiro en Taller / Pick-up (Sin costo)</option>
         </select>
       </div>
 
-      <!-- Fecha Deseada -->
       <div>
         <label for="cartOrderDate" class="block text-xs font-bold uppercase tracking-wider text-chocolate mb-1">
           📅 Fecha Deseada de Entrega:
@@ -646,19 +805,22 @@
         <input type="date" id="cartOrderDate" class="w-full px-3.5 py-2 rounded-xl bg-crema border border-chocolate/15 text-xs text-chocolate focus:ring-2 focus:ring-chocolate/20 focus:outline-none">
       </div>
 
-      <!-- Dedicatoria -->
       <div>
         <label for="cartOrderNotes" class="block text-xs font-bold uppercase tracking-wider text-chocolate mb-1">
           💌 Dedicatoria / Notas para Ángela:
         </label>
-        <input type="text" id="cartOrderNotes" placeholder="Ej: Tarjeta de feliz cumple / Instrucción para el repartidor" class="w-full px-3.5 py-2 rounded-xl bg-crema border border-chocolate/15 text-xs text-chocolate placeholder:text-chocolate-muted/60 focus:ring-2 focus:ring-chocolate/20 focus:outline-none">
+        <input type="text" id="cartOrderNotes" placeholder="Ej: Tarjeta de feliz cumple / Dirección exacta para repartidor" class="w-full px-3.5 py-2 rounded-xl bg-crema border border-chocolate/15 text-xs text-chocolate placeholder:text-chocolate-muted/60 focus:ring-2 focus:ring-chocolate/20 focus:outline-none">
       </div>
 
-      <!-- Totales -->
+      <!-- Totales Financieros Dinámicos -->
       <div class="pt-2 border-t border-chocolate/10 space-y-1 text-xs">
         <div class="flex justify-between text-chocolate-muted">
           <span>Subtotal productos:</span>
           <span id="cartSubtotalVal" class="font-semibold text-chocolate">$0 COP</span>
+        </div>
+        <div class="flex justify-between text-chocolate-muted">
+          <span>Flete Plataforma de Entrega:</span>
+          <span id="cartDeliveryCostVal" class="font-semibold text-rappi">$7.500 COP</span>
         </div>
         <div class="flex justify-between text-chocolate-muted">
           <span>Empaque rígido de autor:</span>
@@ -670,7 +832,6 @@
         </div>
       </div>
 
-      <!-- Checkout WhatsApp Button -->
       <button id="cartCheckoutBtn" 
               class="shimmer-luxury w-full py-4 rounded-full bg-chocolate hover:bg-chocolate-soft text-crema text-xs uppercase font-bold tracking-widest transition-all duration-300 shadow-warm flex items-center justify-center gap-2 group">
         <svg class="w-4 h-4 fill-current text-dorado" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.087.289.13.332.203.043.072.043.419-.101.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.661 1.442 5.176L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
@@ -679,6 +840,156 @@
 
     </div>
   </aside>
+
+  <!-- MODAL EMBEBIDO DENTRO DE LA PÁGINA: MÓDULO MULTI-PLATAFORMA (RAPPI & DIDI FOOD) -->
+  <div id="platformModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-chocolate/60 modal-backdrop-blur opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-crema rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border-2 border-dorado/30 max-h-[92vh] overflow-y-auto">
+      
+      <button onclick="closePlatformModal()" class="absolute top-5 right-5 p-2 rounded-full hover:bg-mantequilla text-chocolate transition-colors" aria-label="Cerrar modal de plataformas">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+
+      <!-- Selector de Pestañas Superiores -->
+      <div class="flex items-center gap-2 border-b border-chocolate/10 pb-4 mb-5">
+        <button id="tabBtnRappi" onclick="switchPlatformTab('rappi')" class="px-4 py-2 rounded-full text-xs font-bold uppercase transition-all duration-200 flex items-center gap-1.5 bg-rappi text-white shadow-sm">
+          <span>🛵 Rappi Aliados</span>
+        </button>
+        <button id="tabBtnDidi" onclick="switchPlatformTab('didi')" class="px-4 py-2 rounded-full text-xs font-bold uppercase transition-all duration-200 flex items-center gap-1.5 bg-mantequilla/60 text-chocolate hover:bg-mantequilla">
+          <span>🧡 DiDi Food Aliados</span>
+        </button>
+        <button id="tabBtnMsg" onclick="switchPlatformTab('mensajeria')" class="hidden sm:inline-flex px-4 py-2 rounded-full text-xs font-bold uppercase transition-all duration-200 items-center gap-1.5 bg-mantequilla/60 text-chocolate hover:bg-mantequilla">
+          <span>🚗 Mensajería Especial</span>
+        </button>
+      </div>
+
+      <!-- VISTA 1: RAPPI ALIADOS -->
+      <div id="platformRappiView" class="space-y-4">
+        <div class="flex items-center gap-3 border-b border-chocolate/10 pb-3">
+          <div class="w-10 h-10 rounded-2xl bg-rappi flex items-center justify-center text-white font-bold text-lg shadow-sm">
+            🛵
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-chocolate">Módulo Rappi Aliados en Pantalla</h3>
+              <span class="px-2 py-0.5 rounded-full bg-rappi/10 text-rappi text-[10px] font-bold uppercase">Enlace Oficial</span>
+            </div>
+            <p class="text-xs text-chocolate-muted">Bai Bai Bake · Tienda Oficial Barranquilla</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-rappi/5 border border-rappi/20 flex items-center justify-between gap-4">
+          <div>
+            <h4 class="font-serif text-base font-bold text-chocolate">Beneficio RappiPrime en Barranquilla</h4>
+            <p class="text-xs text-chocolate-muted mt-0.5">Recibe tus brownies y blondies con envío gratis y entrega prioritaria a tu domicilio.</p>
+          </div>
+          <span class="px-3 py-1.5 rounded-full bg-rappi text-white text-xs font-bold shrink-0">Prime $0</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div class="p-4 rounded-xl bg-crema border border-chocolate/10 space-y-2">
+            <span class="text-[10px] uppercase font-bold text-dorado tracking-wider">Opción 1: Web Directa</span>
+            <h5 class="font-serif font-bold text-sm text-chocolate">Despacho con Domiciliario Express</h5>
+            <p class="text-[11px] text-chocolate-muted">Armas tu carrito en esta web, te ahorras comisiones y te despachamos de inmediato con tracking.</p>
+            <button onclick="closePlatformModal(); BakeCart.open();" class="w-full py-2 rounded-full bg-chocolate text-crema text-xs font-bold hover:bg-chocolate-soft transition-colors">
+              Ir a mi Pedido Web
+            </button>
+          </div>
+
+          <div class="p-4 rounded-xl bg-crema border border-rappi/30 space-y-2">
+            <span class="text-[10px] uppercase font-bold text-rappi tracking-wider">Opción 2: App Oficial</span>
+            <h5 class="font-serif font-bold text-sm text-chocolate">Abrir Tienda en Rappi</h5>
+            <p class="text-[11px] text-chocolate-muted">Accede a la ficha en Rappi para canjear tus créditos RappiPay y beneficios de usuario.</p>
+            <a href="https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake" target="_blank" rel="noopener noreferrer" class="block w-full py-2 text-center rounded-full bg-rappi text-white text-xs font-bold hover:bg-rappi-dark transition-colors shadow-sm">
+              Abrir App de Rappi
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISTA 2: DIDI FOOD ALIADOS -->
+      <div id="platformDidiView" class="space-y-4 hidden">
+        <div class="flex items-center gap-3 border-b border-chocolate/10 pb-3">
+          <div class="w-10 h-10 rounded-2xl bg-didi flex items-center justify-center text-white font-bold text-lg shadow-sm">
+            🧡
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-chocolate">Módulo DiDi Food Aliados en Pantalla</h3>
+              <span class="px-2 py-0.5 rounded-full bg-didi/10 text-didi text-[10px] font-bold uppercase">Enlace Oficial</span>
+            </div>
+            <p class="text-xs text-chocolate-muted">Bai Bai Bake · Tienda Oficial DiDi Food Barranquilla</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-didi/5 border border-didi/20 flex items-center justify-between gap-4">
+          <div>
+            <h4 class="font-serif text-base font-bold text-chocolate">Cupones y Descuentos DiDi Food</h4>
+            <p class="text-xs text-chocolate-muted mt-0.5">Aprovecha descuentos en flete y entregas relámpago con repartidores aliados DiDi.</p>
+          </div>
+          <span class="px-3 py-1.5 rounded-full bg-didi text-white text-xs font-bold shrink-0">Promo DiDi</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+          <div class="p-4 rounded-xl bg-crema border border-chocolate/10 space-y-2">
+            <span class="text-[10px] uppercase font-bold text-dorado tracking-wider">Opción 1: Web Directa</span>
+            <h5 class="font-serif font-bold text-sm text-chocolate">Pedido Web sin Sobrecostos</h5>
+            <p class="text-[11px] text-chocolate-muted">Disfruta el catálogo completo artesanal de Ángela Duque directo a precio de cocina.</p>
+            <button onclick="closePlatformModal(); BakeCart.open();" class="w-full py-2 rounded-full bg-chocolate text-crema text-xs font-bold hover:bg-chocolate-soft transition-colors">
+              Ir a mi Pedido Web
+            </button>
+          </div>
+
+          <div class="p-4 rounded-xl bg-crema border border-didi/30 space-y-2">
+            <span class="text-[10px] uppercase font-bold text-didi tracking-wider">Opción 2: App Oficial</span>
+            <h5 class="font-serif font-bold text-sm text-chocolate">Abrir Menú en DiDi Food</h5>
+            <p class="text-[11px] text-chocolate-muted">Abre la tienda en la aplicación móvil de DiDi Food para usar tus códigos promocionales.</p>
+            <a href="https://www.didi-food.com/es-CO/food/store/bai-bai-bake-barranquilla" target="_blank" rel="noopener noreferrer" class="block w-full py-2 text-center rounded-full bg-didi text-white text-xs font-bold hover:bg-didi-dark transition-colors shadow-sm">
+              Abrir App DiDi Food
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISTA 3: MENSAJERÍA ESPECIALIZADA -->
+      <div id="platformMsgView" class="space-y-4 hidden">
+        <div class="flex items-center gap-3 border-b border-chocolate/10 pb-3">
+          <div class="w-10 h-10 rounded-2xl bg-emerald-700 flex items-center justify-center text-white font-bold text-lg shadow-sm">
+            🚗
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-chocolate">Mensajería Climatizada & Tortas</h3>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-800 text-[10px] font-bold uppercase">Vehículo A/C</span>
+            </div>
+            <p class="text-xs text-chocolate-muted">Barranquilla, Puerto Colombia, Villa Campestre y Soledad</p>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 text-xs text-chocolate-muted space-y-2">
+          <p class="font-medium text-chocolate">Para tortas con varios pisos y montajes de celebraciones, asignamos transporte en automóvil con aire acondicionado que previene que el buttercream o ganache se alteren con el calor de Barranquilla.</p>
+          <p>Coordina la fecha y horario exacto con Ángela Duque a través de WhatsApp.</p>
+        </div>
+
+        <div class="pt-2">
+          <a href="https://wa.me/573017796023?text=Hola%20Ángela,%20quisiera%20coordinar%20un%20despacho%20climatizado%20para%20una%20torta." target="_blank" rel="noopener noreferrer" class="block w-full py-2.5 text-center rounded-full bg-chocolate text-crema text-xs font-bold hover:bg-chocolate-soft transition-colors shadow-sm">
+            Coordinar Despacho Especial por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Pie de Información del Taller -->
+      <div class="mt-4 p-4 rounded-2xl bg-mantequilla/40 border border-chocolate/10 text-xs text-chocolate-muted flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div>
+          <p>📍 <strong>Taller de Recogida:</strong> Zona Norte / Alto Prado, Barranquilla.</p>
+          <p class="mt-0.5">⏱️ <strong>Horario de Recogidas:</strong> Martes a Sábado de 9:00 AM a 6:30 PM.</p>
+        </div>
+        <button onclick="closePlatformModal(); BakeChat.open();" class="text-chocolate font-bold hover:underline shrink-0">
+          ¿Dudas? Hablar con BakeBot
+        </button>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Modal de Detalle Rápido de Producto (Quick View) -->
   <div id="productDetailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-chocolate/40 modal-backdrop-blur opacity-0 pointer-events-none transition-opacity duration-300">
@@ -695,13 +1006,11 @@
   <!-- Concierge Virtual Interactivo ("BakeBot") -->
   <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
     
-    <!-- Tooltip Pulsante -->
     <div id="conciergeTooltip" class="mb-3 bg-chocolate text-crema text-xs py-2 px-3.5 rounded-2xl shadow-warm border border-dorado/30 flex items-center gap-2 animate-bounce cursor-pointer" onclick="BakeChat.toggle()">
       <span class="w-2 h-2 rounded-full bg-dorado animate-ping"></span>
-      <span class="font-medium">¿Te ayudo a elegir tu antojo de hoy? ✨</span>
+      <span class="font-medium">¿Te ayudo a elegir o coordinar tu recogida? ✨</span>
     </div>
 
-    <!-- Botón Flotante Disparador -->
     <button id="conciergeTriggerBtn" 
             onclick="BakeChat.toggle()" 
             class="relative w-14 h-14 rounded-full bg-chocolate text-mantequilla shadow-warm-float hover:shadow-2xl flex items-center justify-center transform hover:scale-105 transition-all duration-300 border-2 border-dorado"
@@ -716,7 +1025,6 @@
     <div id="conciergeChatWindow" 
          class="hidden fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 max-h-[580px] h-[520px] bg-crema rounded-3xl shadow-2xl border border-chocolate/10 flex flex-col overflow-hidden z-50 transition-all duration-300">
       
-      <!-- Cabecera del Chat -->
       <div class="px-5 py-4 bg-chocolate text-crema flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 rounded-full bg-mantequilla text-chocolate flex items-center justify-center font-serif font-bold text-sm">
@@ -735,7 +1043,6 @@
         </button>
       </div>
 
-      <!-- Feed de Mensajes -->
       <div class="flex-1 p-4 overflow-y-auto space-y-3 bg-[#FCF8F2] text-xs" id="chatMessages">
         <div class="flex items-start gap-2">
           <div class="w-7 h-7 rounded-full bg-chocolate text-crema flex items-center justify-center font-bold text-[10px] shrink-0">
@@ -743,7 +1050,7 @@
           </div>
           <div class="bg-crema p-3 rounded-2xl rounded-tl-none border border-chocolate/5 shadow-warm-sm text-chocolate space-y-1.5 max-w-[85%]">
             <p>¡Hola! Soy <strong>BakeBot</strong>, el concierge virtual de <strong>Bai Bai Bake</strong>.</p>
-            <p>Estoy aquí para sugerirte el postre ideal, coordinar entregas express por Rappi / Mensajería en Barranquilla o conectarte directamente con Ángela Duque.</p>
+            <p>Estoy aquí para sugerirte el postre ideal, coordinar recogidas express por Rappi / Mensajería en Barranquilla o conectarte directamente con Ángela Duque.</p>
           </div>
         </div>
       </div>
@@ -767,7 +1074,6 @@
         </button>
       </div>
 
-      <!-- Transferencia Directa -->
       <div class="px-4 py-2 bg-mantequilla/60 border-t border-chocolate/5 flex items-center justify-between">
         <span class="text-[10px] text-chocolate-muted">¿Prefieres atención personalizada?</span>
         <button onclick="BakeChat.transferToWhatsApp()" class="text-[10px] font-bold text-chocolate underline flex items-center gap-1 hover:text-dorado">
@@ -776,7 +1082,6 @@
         </button>
       </div>
 
-      <!-- Input del Chat -->
       <form id="chatForm" class="p-3 bg-crema border-t border-chocolate/10 flex items-center gap-2">
         <input type="text" 
                id="chatInput" 
@@ -802,7 +1107,6 @@
       
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-crema/10">
         
-        <!-- Columna de Marca -->
         <div class="md:col-span-5 space-y-4">
           <div class="flex items-center gap-2">
             <span class="font-serif text-3xl font-semibold tracking-tight text-crema">Bai Bai Bake</span>
@@ -818,15 +1122,16 @@
             <a href="https://wa.me/573017796023" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full bg-crema/10 hover:bg-crema/20 text-mantequilla transition-colors" aria-label="Escríbenos por WhatsApp">
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086.159.058 1.011.477 1.184.564.173.087.289.13.332.203.043.072.043.419-.101.824zM12 2C6.477 2 2 6.477 2 12c0 1.891.526 3.661 1.442 5.176L2 22l4.981-1.306A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
             </a>
-            <!-- Rappi Badge Footer -->
-            <a href="https://www.rappi.com.co/restaurantes/barranquilla/bai-bai-bake" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-full bg-rappi text-white text-xs font-bold flex items-center gap-1.5 hover:bg-rappi-dark transition-colors shadow-sm">
+            <button onclick="openPlatformModal('rappi')" class="px-3 py-1.5 rounded-full bg-rappi text-white text-xs font-bold flex items-center gap-1.5 hover:bg-rappi-dark transition-colors shadow-sm">
               <span>🛵 Rappi Aliados</span>
-            </a>
+            </button>
+            <button onclick="openPlatformModal('didi')" class="px-3 py-1.5 rounded-full bg-didi text-white text-xs font-bold flex items-center gap-1.5 hover:bg-didi-dark transition-colors shadow-sm">
+              <span>🧡 DiDi Food Aliados</span>
+            </button>
             <span class="text-xs text-mantequilla/70">Instagram: <strong>@baibaibakee</strong></span>
           </div>
         </div>
 
-        <!-- Contacto Directo -->
         <div class="md:col-span-4 space-y-3">
           <h4 class="font-serif text-lg font-medium text-crema">Contacto & Atelier</h4>
           <p class="text-xs sm:text-sm text-mantequilla/80 leading-relaxed">
@@ -841,7 +1146,6 @@
           </p>
         </div>
 
-        <!-- Alérgenos -->
         <div class="md:col-span-3 space-y-3">
           <h4 class="font-serif text-lg font-medium text-crema">Aviso de Alérgenos</h4>
           <p class="text-xs text-mantequilla/70 leading-relaxed">
@@ -853,7 +1157,7 @@
 
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-mantequilla/60 gap-4">
         <p>© 2026 Bai Bai Bake (@baibaibakee) · Liderado por Ángela Duque.</p>
-        <p class="tracking-wide">Integración con Rappi, Mensajería Express y estándar SALMAN.</p>
+        <p class="tracking-wide">Centro de Despacho y Recogida Embebido · Estándar SALMAN.</p>
       </div>
 
     </div>
@@ -864,8 +1168,118 @@
   <script src="js/cart.js"></script>
   <script src="js/chatbot.js"></script>
 
-  <!-- Lógica de Enlace Global & FAQ -->
+  <!-- Lógica de Centro de Despacho, Modal Rappi In-Page y Cotizador -->
   <script>
+    // Gestión del Modal Multi-Plataforma Embebido en Pantalla (Rappi & DiDi Food)
+    function openPlatformModal(platform = 'rappi') {
+      const modal = document.getElementById('platformModal') || document.getElementById('rappiInPageModal');
+      if (modal) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.classList.add('overflow-hidden');
+      }
+      switchPlatformTab(platform);
+    }
+
+    function closePlatformModal() {
+      const modal = document.getElementById('platformModal') || document.getElementById('rappiInPageModal');
+      if (modal) {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    function switchPlatformTab(tab) {
+      const rappiView = document.getElementById('platformRappiView');
+      const didiView = document.getElementById('platformDidiView');
+      const msgView = document.getElementById('platformMsgView');
+      const btnRappi = document.getElementById('tabBtnRappi');
+      const btnDidi = document.getElementById('tabBtnDidi');
+      const btnMsg = document.getElementById('tabBtnMsg');
+
+      if (!rappiView || !didiView) return;
+
+      // Reseteo visual de botones
+      [btnRappi, btnDidi, btnMsg].forEach(b => {
+        if (b) {
+          b.className = 'px-4 py-2 rounded-full text-xs font-bold uppercase transition-all duration-200 flex items-center gap-1.5 bg-mantequilla/60 text-chocolate hover:bg-mantequilla';
+        }
+      });
+
+      // Ocultar vistas
+      rappiView.classList.add('hidden');
+      didiView.classList.add('hidden');
+      if (msgView) msgView.classList.add('hidden');
+
+      if (tab === 'rappi') {
+        rappiView.classList.remove('hidden');
+        if (btnRappi) {
+          btnRappi.className = 'px-4 py-2 rounded-full text-xs font-bold uppercase transition-all duration-200 flex items-center gap-1.5 bg-rappi text-white shadow-sm';
+        }
+      } else if (tab === 'didi') {
+        didiView.classList.remove('hidden');
+        if (btnDidi) {
+          btnDidi.className = 'px-4 py-2 rounded-full text-xs font-bold uppercase transition-all duration-200 flex items-center gap-1.5 bg-didi text-white shadow-sm';
+        }
+      } else if (tab === 'mensajeria') {
+        if (msgView) msgView.classList.remove('hidden');
+        if (btnMsg) {
+          btnMsg.className = 'px-4 py-2 rounded-full text-xs font-bold uppercase transition-all duration-200 flex items-center gap-1.5 bg-chocolate text-crema shadow-sm';
+        }
+      }
+    }
+
+    // Compatibilidad retroactiva
+    function openRappiInPageModal() {
+      openPlatformModal('rappi');
+    }
+    function closeRappiInPageModal() {
+      closePlatformModal();
+    }
+
+    // Simulador y Gestor de Despacho en Vivo
+    function updateHubSimulation() {
+      const select = document.getElementById('hubZoneSelect');
+      const rateDisplay = document.getElementById('hubRateDisplay');
+      const timeDisplay = document.getElementById('hubTimeDisplay');
+      if (!select || !rateDisplay || !timeDisplay) return;
+
+      const selectedOpt = select.options[select.selectedIndex];
+      const cost = parseInt(selectedOpt.getAttribute('data-cost')) || 7500;
+      const time = selectedOpt.getAttribute('data-time') || '25 a 35 min';
+
+      rateDisplay.textContent = '$' + cost.toLocaleString('es-CO') + ' COP';
+      timeDisplay.textContent = time;
+
+      // Sincronizar con el carrito
+      const zoneKeyMap = {
+        'norte': 'rappi-norte',
+        'centro': 'rappi-sur',
+        'puerto': 'rappi-pto-colombia',
+        'soledad': 'rappi-soledad'
+      };
+      if (window.BakeCart && zoneKeyMap[select.value]) {
+        window.BakeCart.setDeliveryOption(zoneKeyMap[select.value]);
+      }
+    }
+
+    function selectHubTab(tabName) {
+      if (tabName === 'rappi') {
+        openPlatformModal('rappi');
+      } else if (tabName === 'didi') {
+        openPlatformModal('didi');
+      } else if (tabName === 'mensajeria') {
+        const select = document.getElementById('hubZoneSelect');
+        if (select) select.value = 'puerto';
+        updateHubSimulation();
+        if (window.BakeCart) window.BakeCart.setDeliveryOption('rappi-pto-colombia');
+      } else if (tabName === 'pickup') {
+        if (window.BakeCart) {
+          window.BakeCart.setDeliveryOption('pickup');
+          window.BakeCart.open();
+        }
+      }
+    }
+
     function handleQuoteSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('quoteClientName').value.trim();
@@ -940,6 +1354,23 @@
             card.classList.add('bg-mantequilla/70');
           }
         });
+      });
+
+      // Cerrar modal al hacer clic en fondo
+      const platformModal = document.getElementById('platformModal');
+      if (platformModal) {
+        platformModal.addEventListener('click', (e) => {
+          if (e.target.id === 'platformModal') {
+            closePlatformModal();
+          }
+        });
+      }
+
+      // Tecla ESC para cerrar modal de plataformas
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closePlatformModal();
+        }
       });
 
       const quoteTargetDate = document.getElementById('quoteTargetDate');

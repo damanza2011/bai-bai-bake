@@ -1,7 +1,7 @@
 /**
  * BAI BAI BAKE — CART & CHECKOUT MODULE (cart.js)
  * Estado reactivo, persistencia en localStorage, modal drawer, opciones de despacho por plataformas (Rappi / Mensajeros)
- * y formateador de pedidos a WhatsApp.
+ * con cálculo dinámico de tarifa y centro de pedidos embebido en la página.
  * Estándar de ingeniería comercial SALMAN
  */
 
@@ -11,25 +11,29 @@
   const STORAGE_KEY = 'baibaibake_cart_v3';
   const WHATSAPP_PHONE = '573017796023'; // Línea oficial de Ángela Duque
 
+  // Tarifas de despacho integradas dentro de la página
+  const DELIVERY_RATES = {
+    'rappi-norte': { name: 'Rappi Envíos Express (Norte / Riomar / Alto Prado)', cost: 7500 },
+    'didi-barranquilla': { name: 'DiDi Food Envíos (Barranquilla Urbana)', cost: 7500 },
+    'rappi-sur': { name: 'Rappi / DiDi Envíos (Centro / Sur)', cost: 9500 },
+    'rappi-pto-colombia': { name: 'Rappi / Mensajería Express (Pto. Colombia / Villa Campestre)', cost: 12000 },
+    'rappi-soledad': { name: 'Mensajería Express Climatizada (Soledad)', cost: 13500 },
+    'pickup': { name: 'Retiro en Atelier / Pick-up (Sin costo)', cost: 0 }
+  };
+
   let cart = [];
+  let currentDeliveryOption = 'rappi-norte';
   let toastTimer = null;
 
-  /**
-   * Formateador monetario (COP)
-   */
   function formatCOP(amount) {
     return '$' + amount.toLocaleString('es-CO') + ' COP';
   }
 
-  /**
-   * Cargar y guardar en LocalStorage
-   */
   function loadCart() {
     try {
       const data = localStorage.getItem(STORAGE_KEY);
       cart = data ? JSON.parse(data) : [];
     } catch (e) {
-      console.warn('No se pudo acceder a localStorage', e);
       cart = [];
     }
   }
@@ -37,14 +41,9 @@
   function saveCart() {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-    } catch (e) {
-      console.warn('Error al guardar carrito', e);
-    }
+    } catch (e) {}
   }
 
-  /**
-   * Operaciones del Carrito
-   */
   function addItem(productId) {
     const product = window.BakeProducts ? window.BakeProducts.getById(productId) : null;
     if (!product) return;
@@ -94,29 +93,35 @@
     renderUI();
   }
 
-  /**
-   * Renderizar UI del Carrito
-   */
+  function setDeliveryOption(key) {
+    if (DELIVERY_RATES[key]) {
+      currentDeliveryOption = key;
+      renderUI();
+    }
+  }
+
   function renderUI() {
     const badge = document.getElementById('cartCountBadge');
     const container = document.getElementById('cartItemsList');
     const subtotalEl = document.getElementById('cartSubtotalVal');
+    const deliveryCostEl = document.getElementById('cartDeliveryCostVal');
     const totalEl = document.getElementById('cartTotalVal');
 
     const totalCount = cart.reduce((acc, curr) => acc + curr.qty, 0);
     const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+    const deliveryCost = DELIVERY_RATES[currentDeliveryOption] ? DELIVERY_RATES[currentDeliveryOption].cost : 0;
+    const finalTotal = subtotal + deliveryCost;
 
     if (badge) {
       badge.textContent = totalCount;
-      if (totalCount > 0) {
-        badge.style.transform = 'scale(1)';
-      } else {
-        badge.style.transform = 'scale(0)';
-      }
+      badge.style.transform = totalCount > 0 ? 'scale(1)' : 'scale(0)';
     }
 
     if (subtotalEl) subtotalEl.textContent = formatCOP(subtotal);
-    if (totalEl) totalEl.textContent = formatCOP(subtotal);
+    if (deliveryCostEl) {
+      deliveryCostEl.textContent = deliveryCost === 0 ? 'Gratis' : formatCOP(deliveryCost);
+    }
+    if (totalEl) totalEl.textContent = formatCOP(finalTotal);
 
     if (!container) return;
 
@@ -209,8 +214,7 @@
   }
 
   /**
-   * Generador de Enlace a WhatsApp Business (+57 301 779 6023)
-   * Incluye modalidad de despacho express (Rappi Envíos / Mensajería Urbana)
+   * Generador de Enlace a WhatsApp Business con confirmación de Plataforma de Recogida
    */
   function checkoutWhatsApp() {
     if (cart.length === 0) {
@@ -218,29 +222,30 @@
       return;
     }
 
-    const zoneEl = document.getElementById('cartDeliveryZone');
+    const delivery = DELIVERY_RATES[currentDeliveryOption] || DELIVERY_RATES['rappi-norte'];
     const dateEl = document.getElementById('cartOrderDate');
     const notesEl = document.getElementById('cartOrderNotes');
 
-    const zone = zoneEl ? zoneEl.value : 'Despacho Express Rappi / Mensajeros Urbanos';
     const date = dateEl ? dateEl.value : 'Por coordinar con 48h de anticipación';
     const notes = notesEl && notesEl.value.trim() ? notesEl.value.trim() : 'Sin dedicatoria especial';
 
     const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
+    const finalTotal = subtotal + delivery.cost;
 
-    let text = `¡Hola Ángela! Quiero hacer el siguiente pedido en *Bai Bai Bake*:\n\n`;
+    let text = `¡Hola Ángela! Quiero confirmar el siguiente pedido en *Bai Bai Bake*:\n\n`;
     text += `*CREACIONES SELECCIONADAS:*\n`;
 
     cart.forEach(item => {
       text += `• ${item.qty}x ${item.name} (${formatCOP(item.price * item.qty)})\n`;
     });
 
-    text += `\n*RESUMEN DEL PEDIDO:*\n`;
-    text += `• *Total Estimado:* ${formatCOP(subtotal)}\n`;
-    text += `• *Modalidad / Despacho:* ${zone}\n`;
+    text += `\n*DESPACHO Y RECOGIDA POR PLATAFORMA:*\n`;
+    text += `• *Modalidad:* ${delivery.name}\n`;
+    text += `• *Costo de Envíos:* ${delivery.cost === 0 ? 'Gratis (Retiro en Taller)' : formatCOP(delivery.cost)}\n`;
+    text += `• *Total con Despacho:* ${formatCOP(finalTotal)}\n`;
     text += `• *Fecha Deseada:* ${date}\n`;
     text += `• *Notas / Dedicatoria:* ${notes}\n\n`;
-    text += `¿Me confirmas disponibilidad en la agenda de horneado para esa fecha? (Favor enviar enlace de seguimiento cuando se despache con el repartidor). ¡Muchas gracias! ✨`;
+    text += `¿Me confirmas disponibilidad de horneado para esa fecha? (Por favor envíame el enlace de rastreo en vivo cuando el domiciliario de Rappi o Mensajería recoja el pedido). ¡Muchas gracias! ✨`;
 
     const encoded = encodeURIComponent(text);
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`;
@@ -255,6 +260,14 @@
     document.getElementById('closeCartBtn')?.addEventListener('click', closeCart);
     document.getElementById('cartDrawerBackdrop')?.addEventListener('click', closeCart);
     document.getElementById('cartCheckoutBtn')?.addEventListener('click', checkoutWhatsApp);
+
+    // Selector de entrega en el carrito
+    const zoneSelect = document.getElementById('cartDeliveryZone');
+    if (zoneSelect) {
+      zoneSelect.addEventListener('change', (e) => {
+        setDeliveryOption(e.target.value);
+      });
+    }
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -283,6 +296,7 @@
     open: openCart,
     close: closeCart,
     checkout: checkoutWhatsApp,
+    setDeliveryOption: setDeliveryOption,
     init: init
   };
 
