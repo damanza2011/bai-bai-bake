@@ -1,6 +1,7 @@
-﻿/**
+/**
  * BAI BAI BAKE — CART & CHECKOUT MODULE (cart.js)
- * Estado reactivo, persistencia en localStorage, modal drawer y formateador de pedidos a WhatsApp.
+ * Estado reactivo, persistencia en localStorage, modal drawer, opciones de despacho por plataformas (Rappi / Mensajeros)
+ * y formateador de pedidos a WhatsApp.
  * Estándar de ingeniería comercial SALMAN
  */
 
@@ -105,7 +106,6 @@
     const totalCount = cart.reduce((acc, curr) => acc + curr.qty, 0);
     const subtotal = cart.reduce((acc, curr) => acc + (curr.price * curr.qty), 0);
 
-    // Actualizar badge del header
     if (badge) {
       badge.textContent = totalCount;
       if (totalCount > 0) {
@@ -115,13 +115,11 @@
       }
     }
 
-    // Actualizar totales financieros
     if (subtotalEl) subtotalEl.textContent = formatCOP(subtotal);
     if (totalEl) totalEl.textContent = formatCOP(subtotal);
 
     if (!container) return;
 
-    // Estado vacío
     if (cart.length === 0) {
       container.innerHTML = `
         <div class="py-14 text-center space-y-3">
@@ -142,7 +140,6 @@
       return;
     }
 
-    // Listado de ítems
     container.innerHTML = cart.map(item => `
       <div class="pt-4 first:pt-0 flex items-center gap-3">
         <img src="${item.image}" alt="${item.name}" class="w-14 h-14 rounded-2xl object-cover bg-mantequilla shrink-0">
@@ -166,21 +163,15 @@
     `).join('');
   }
 
-  /**
-   * Animación háptica/visual del badge
-   */
   function animateBadge() {
     const badge = document.getElementById('cartCountBadge');
     if (badge) {
       badge.classList.remove('badge-pop');
-      void badge.offsetWidth; // Trigger reflow
+      void badge.offsetWidth;
       badge.classList.add('badge-pop');
     }
   }
 
-  /**
-   * Notificación Toast
-   */
   function showToast(message) {
     const toast = document.getElementById('toastNotification');
     const msgEl = document.getElementById('toastMessage');
@@ -197,9 +188,6 @@
     }, 3200);
   }
 
-  /**
-   * Abrir y Cerrar Drawer
-   */
   function openCart() {
     const drawer = document.getElementById('cartDrawer');
     const backdrop = document.getElementById('cartDrawerBackdrop');
@@ -222,6 +210,7 @@
 
   /**
    * Generador de Enlace a WhatsApp Business (+57 301 779 6023)
+   * Incluye modalidad de despacho express (Rappi Envíos / Mensajería Urbana)
    */
   function checkoutWhatsApp() {
     if (cart.length === 0) {
@@ -233,7 +222,7 @@
     const dateEl = document.getElementById('cartOrderDate');
     const notesEl = document.getElementById('cartOrderNotes');
 
-    const zone = zoneEl ? zoneEl.value : 'Barranquilla (Norte / Riomar)';
+    const zone = zoneEl ? zoneEl.value : 'Despacho Express Rappi / Mensajeros Urbanos';
     const date = dateEl ? dateEl.value : 'Por coordinar con 48h de anticipación';
     const notes = notesEl && notesEl.value.trim() ? notesEl.value.trim() : 'Sin dedicatoria especial';
 
@@ -248,37 +237,31 @@
 
     text += `\n*RESUMEN DEL PEDIDO:*\n`;
     text += `• *Total Estimado:* ${formatCOP(subtotal)}\n`;
-    text += `• *Zona de Entrega:* ${zone}\n`;
+    text += `• *Modalidad / Despacho:* ${zone}\n`;
     text += `• *Fecha Deseada:* ${date}\n`;
     text += `• *Notas / Dedicatoria:* ${notes}\n\n`;
-    text += `¿Me confirmas disponibilidad en la agenda de horneado para esa fecha? ¡Muchas gracias! ✨`;
+    text += `¿Me confirmas disponibilidad en la agenda de horneado para esa fecha? (Favor enviar enlace de seguimiento cuando se despache con el repartidor). ¡Muchas gracias! ✨`;
 
     const encoded = encodeURIComponent(text);
     const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`;
     window.open(url, '_blank');
   }
 
-  /**
-   * Inicialización de eventos
-   */
   function init() {
     loadCart();
     renderUI();
 
-    // Eventos del Drawer
     document.getElementById('openCartBtn')?.addEventListener('click', openCart);
     document.getElementById('closeCartBtn')?.addEventListener('click', closeCart);
     document.getElementById('cartDrawerBackdrop')?.addEventListener('click', closeCart);
     document.getElementById('cartCheckoutBtn')?.addEventListener('click', checkoutWhatsApp);
 
-    // Tecla ESC para cerrar
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeCart();
       }
     });
 
-    // Validación de fecha mínima (48h de anticipación)
     const cartDate = document.getElementById('cartOrderDate');
     if (cartDate) {
       const today = new Date();
@@ -292,7 +275,6 @@
     }
   }
 
-  // Exportar a espacio global controlado
   window.BakeCart = {
     addItem: addItem,
     updateQty: updateQty,
